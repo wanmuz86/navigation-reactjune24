@@ -8,11 +8,14 @@ import About from './components/About.jsx'
 import Product from './components/Product.jsx'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Error from './components/Error.jsx'
+import ProductError from './components/ProductError.jsx'
 
 const router = createBrowserRouter([
   {
     path:"/",
     element:<App/>,
+    errorElement:<Error/>, // Setting up Error Boundary 
     children:[
       {
         path:"",
@@ -28,7 +31,8 @@ const router = createBrowserRouter([
       },
       {
         path:"products/:productId",
-        element:<Product/>
+        element:<Product/>,
+        errorElement:<ProductError/> // Setting up Error Boundary 
       }
     ]
   }
