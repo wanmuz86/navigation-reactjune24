@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path:"products/:productId",
         element:<Product/>,
-        errorElement:<ProductError/> // Setting up Error Boundary 
+        errorElement:<ProductError/> // Setting up Error Boundary for Product page
       }
     ]
   }

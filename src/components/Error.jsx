@@ -1,7 +1,8 @@
 import React from 'react'
-import { useRouteError } from 'react-router-dom'
+import { useRouteError, useNavigate } from 'react-router-dom'
 
 const Error = () => {
+    const navigate = useNavigate();
 
     const error = useRouteError();  // retrieving the error information from errorElement
 
@@ -12,6 +13,7 @@ const Error = () => {
         <p>
             {error.statusText || error.message}
         </p>
+        <button onClick={()=> navigate('./') }>Go Home!</button>
     </div>
   )
 }

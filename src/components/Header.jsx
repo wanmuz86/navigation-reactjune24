@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -8,7 +8,8 @@ const Header = () => {
         </header>
             <nav>
                 <ul>
-                    <li>
+                    {/* Link is a simpler version of NavLink */}
+                    {/* <li>
                         <Link to="./">Home</Link>
                     </li>
                     <li>
@@ -16,6 +17,31 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to="./contact">Contact</Link>
+                    </li> */}
+
+                    <li>
+                        <NavLink to="./" className={({ isActive, isPending }) =>
+                            isActive ? "active"
+                                : isPending
+                                    ? "pending"
+                                    : ""
+                        } >Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="./about" className={({ isActive, isPending }) =>
+                            isActive ? "active"
+                                : isPending
+                                    ? "pending"
+                                    : ""
+                        } >About</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="./contact" className={({ isActive, isPending }) =>
+                            isActive ? "active"
+                                : isPending
+                                    ? "pending"
+                                    : ""
+                        } >Contact</NavLink>
                     </li>
 
                 </ul>
