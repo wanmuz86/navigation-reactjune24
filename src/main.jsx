@@ -12,7 +12,7 @@ import Error from './components/Error.jsx'
 import ProductError from './components/ProductError.jsx'
 
 import ProtectedRoute from './components/ProtectedRoute.jsx'
-import CreateProduct from './components/CreateProduct.jsx'
+import CreateProduct,{createProductAction} from './components/CreateProduct.jsx'
 import ProductList,{dataLoader} from './components/ProductList.jsx'
 
 const router = createBrowserRouter([
@@ -53,7 +53,8 @@ const router = createBrowserRouter([
          {
           // admin/create-product is an add a product page which will be protected
           path:"create-product",
-          element:<CreateProduct/>
+          element:<CreateProduct/>,
+          action:createProductAction
          }
         ]
 
