@@ -4,8 +4,21 @@ import { Link, useLoaderData, useNavigation } from 'react-router-dom'
 
 
 // Call to API which will be done when the page is loaded
-export const dataLoader = async () => {
-    const apiUrl = "https://fakestoreapi.com/products"
+
+// 1) Retrieveing the searchparams -> add request as props in dataLoader
+export const dataLoader = async ({request}) => {
+
+    // 2) Retrieveing the searchparams - retrieved the url
+    const url = new URL(request.url) // THE URL OPENED BY USER IN THIS PAGE 
+    // localhost:5173/products?limit=4
+
+    let limitParam = 10; // default search results for API if no params sent
+    // 3) Retrieveing the searchparams - from the url get the parameters
+    if (url.searchParams.get("limit")){
+        limitParam = url.searchParams.get("limit")
+    }
+
+    const apiUrl = `https://fakestoreapi.com/products?limit=${limitParam}`
     const res = await fetch(apiUrl)
     const jsonResult = await res.json()
     return jsonResult
