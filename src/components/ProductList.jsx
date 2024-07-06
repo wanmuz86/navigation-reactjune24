@@ -25,6 +25,7 @@ const ProductList = () => {
             {
                 results.map((val) => (
                     <div key={val.id}>
+                        {/* // From /products go to /products/1 */}
                         <Link to={`./${val.id}`}>
                             <h1>{val.title}</h1>
                             <p>{val.price}</p>

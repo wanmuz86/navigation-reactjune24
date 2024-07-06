@@ -5,7 +5,7 @@ import './index.css'
 import Home from './components/Home.jsx'
 import Contact from './components/Contact.jsx'
 import About from './components/About.jsx'
-import Product from './components/Product.jsx'
+import Product, {detailLoader} from './components/Product.jsx'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Error from './components/Error.jsx'
@@ -41,6 +41,7 @@ const router = createBrowserRouter([
       {
         path:"products/:productId",
         element:<Product/>,
+        loader:detailLoader,
         errorElement:<ProductError/> // Setting up Error Boundary for Product page
       },
       {
