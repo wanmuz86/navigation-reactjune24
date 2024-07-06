@@ -13,6 +13,7 @@ import ProductError from './components/ProductError.jsx'
 
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import CreateProduct from './components/CreateProduct.jsx'
+import ProductList from './components/ProductList.jsx'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {
         path:"about",
         element:<About/>
+      },
+      {
+        path:"products",
+        element:<ProductList/>,
+        loader:dataLoader
       },
       {
         path:"products/:productId",
