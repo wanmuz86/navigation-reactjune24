@@ -11,6 +11,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Error from './components/Error.jsx'
 import ProductError from './components/ProductError.jsx'
 
+import ProtectedRoute from './components/ProtectedRoute.jsx'
+import CreateProduct from './components/CreateProduct.jsx'
+
 const router = createBrowserRouter([
   {
     path:"/",
@@ -33,6 +36,21 @@ const router = createBrowserRouter([
         path:"products/:productId",
         element:<Product/>,
         errorElement:<ProductError/> // Setting up Error Boundary for Product page
+      },
+      {
+        // Everything that starts with admin/ -> To be protected
+        // Rules to protect the page will be defined in ProtectedRoute
+        element:<ProtectedRoute/>,
+        path:"admin",
+        children:[
+         {
+          // admin/create-product is an add a product page which will be protected
+          path:"create-product",
+          element:<CreateProduct/>
+         }
+        ]
+
+
       }
     ]
   }
